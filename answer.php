@@ -18,7 +18,6 @@
   <title>Positive or Negative #, in PHP</title>
 </head>
 
-
 <body>
   <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -31,31 +30,18 @@
       <div class="right-image">
         <img src="./images/positive_negative.jpg" alt="postive and negative" />
       </div>
-      <div class="page-content">Select what kind of number you would like.</div>
-      <br />
-      <form action="answer.php" method="GET">
-        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-positive">
-          <input type="radio" id="option-positive" name="kind-of-number" class="mdl-radio__button" value="1" checked>
-          <span class="mdl-radio__label">Positive</span>
-        </label>
-        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-negative">
-          <input type="radio" id="option-negative" name="kind-of-number" class="mdl-radio__button" value="2">
-          <span class="mdl-radio__label">Negative</span>
-        </label>
-        <br />
-        <br />
-        <!-- Accent-colored raised button with ripple -->
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-          type="submit">
-          Generate
-        </button>
-      </form>
-      <br />
-      <div class="page-content">
-        <div id="result"></div>
-      </div>
-    </main>
+      <?php
+      $numberType = $_GET["kind-of-number"];
+      if ($numberType === "1") {
+        $randomNumber = rand(1, 6);
+        echo "Your random number is: " . $randomNumber;
+      } else {
+        $randomNumber = rand(-6, -1);
+        echo "Your random number is: " . $randomNumber;
+      }
+      ?>
   </div>
+  </main>
 </body>
 
 </html>
